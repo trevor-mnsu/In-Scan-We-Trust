@@ -1,6 +1,5 @@
 # Import Libraries
 import cv2
-import pytesseract
 from PIL import Image
 
 def bgr_to_rgb(img):
