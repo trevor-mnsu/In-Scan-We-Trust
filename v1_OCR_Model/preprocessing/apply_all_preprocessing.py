@@ -6,6 +6,8 @@ from .clahe import clahe
 from evaluate.get_average_confidence import get_average_confidence
 from evaluate.get_easyocr_confidence import get_easyocr_confidence
 import pytesseract
+import easyocr
+reader = easyocr.Reader(['en'], gpu=False)
 
 def apply_all_preprocesses(img):
 
