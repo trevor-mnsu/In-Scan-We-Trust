@@ -1,24 +1,36 @@
-#import all search functions
-from search_text.search_dose_strength import search_dose_strength
 from search_text.search_brand import search_brand_name
-from search_text.search_name import search_medicine_name_first_line
+from search_text.search_dose_strength import search_dosage_amount
+from search_text.search_name import search_medicine_name
+from search_text.text_normalizer import normalize_ocr_text
 
-#apply all search functions to the text
+
 def search_text(text):
     """
-    Runs extraction functions and replaces missing values
-    with 'Not Found'.
+    Runs extraction functions and returns backward-compatible keys.
+    Missing values are returned as "Not Found".
     """
+    normalized = normalize_ocr_text(text)
+    normalized_text = normalized["normalized_text"]
+    normalized_lines = normalized["normalized_lines"]
 
-    dose_strength = search_dose_strength(text)
-    brand_name = search_brand_name(text)
-    medicine_name = search_medicine_name_first_line(text)
+    dosage_amount = search_dosage_amount(
+        normalized_text,
+        normalized_lines=normalized_lines,
+    )
+    brand_name = search_brand_name(
+        normalized_text,
+        normalized_lines=normalized_lines,
+    )
+    medication_name = search_medicine_name(
+        normalized_text,
+        normalized_lines=normalized_lines,
+    )
 
-    #assign key to value pair; if not found set "Not Found"
+    # Keep existing key names used by current callers.
     results = {
-        "search_name": medicine_name if medicine_name else "Not Found",
+        "search_name": medication_name if medication_name else "Not Found",
         "brand_name": brand_name if brand_name else "Not Found",
-        "dose_strength": dose_strength if dose_strength else "Not Found"
+        "dose_strength": dosage_amount if dosage_amount else "Not Found",
     }
 
     return results
