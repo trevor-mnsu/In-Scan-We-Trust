@@ -1,5 +1,6 @@
 # Import Libraries
 import cv2
+from pathlib import Path
 from preprocessing.apply_all_preprocessing import apply_all_preprocesses
 from search_text.search_text import search_text
 
@@ -7,16 +8,19 @@ from search_text.search_text import search_text
 #img_list = [img1, img2, img3...] [apply_all_processing(img) for img in img_list]
 
 # Open images using OpenCV (NOT PIL)
+base_dir = Path(__file__).resolve().parent
+images_dir = base_dir / "images"
+
 image_paths = [
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/pillblisterwhite.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/pillblistertin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/ParcetamolTin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/IbuprofenTin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/ErythromycinTin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/Atorvastatin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/atorvastatin2.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/amoxycillin2.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/amoxycillin2.png",
+    str(images_dir / "pillblisterwhite.png"),
+    #str(images_dir / "pillblistertin.png"),
+    #str(images_dir / "ParcetamolTin.png"),
+    #str(images_dir / "IbuprofenTin.png"),
+    #str(images_dir / "ErythromycinTin.png"),
+    #str(images_dir / "Atorvastatin.png"),
+    #str(images_dir / "atorvastatin2.png"),
+    #str(images_dir / "amoxycillin2.png"),
+    #str(images_dir / "amoxycillin2.png"),
 ]
 
 # Finding the best preprocessing techniques
