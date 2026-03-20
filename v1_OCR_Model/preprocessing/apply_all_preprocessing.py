@@ -3,6 +3,7 @@ from .gray_scale import gray_scale
 from .mildly_denoised import mildly_denoised
 from .illumination_normilization import illumination_normalization
 from .clahe import clahe
+from .resize_image import resize_image
 from evaluate.get_average_confidence import get_average_confidence
 from evaluate.get_easyocr_confidence import get_easyocr_confidence
 import pytesseract
@@ -16,6 +17,7 @@ def apply_all_preprocesses(img):
     preprocessing_methods = {
         "BGR To RGB": bgr_to_rgb,
         "Grayscale": gray_scale,
+        "Resize" : resize_image,
         "Denoised": mildly_denoised,
         "Illumination Normalized": illumination_normalization,
         "CLAHE": clahe,

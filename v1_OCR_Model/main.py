@@ -8,15 +8,7 @@ from search_text.search_text import search_text
 
 # Open images using OpenCV (NOT PIL)
 image_paths = [
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/pillblisterwhite.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/pillblistertin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/ParcetamolTin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/IbuprofenTin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/ErythromycinTin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/Atorvastatin.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/atorvastatin2.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/amoxycillin2.png",
-    "/Users/trevorcloutier/Documents/GitHub/In-Scan-We-Trust/v1_OCR_Model/images/amoxycillin2.png",
+    r"C:\Users\pautz\OneDrive\Documents\SmartMedicineRepo\In-Scan-We-Trust\v1_OCR_Model\images\amoxycillin2.png"
 ]
 
 # Finding the best preprocessing techniques
