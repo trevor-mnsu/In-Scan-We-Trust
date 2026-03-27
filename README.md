@@ -46,6 +46,23 @@ cd backend
 pytest
 ```
 
+## Brand Evaluation (Before/After)
+
+1. Prepare dataset:
+   - `test_images/` folder
+   - `ground_truth.csv` with columns `filename,expected_brand`
+2. Run evaluator:
+
+```powershell
+cd backend
+python tools\evaluate_brand_extraction.py --images-dir ..\test_images --ground-truth ..\ground_truth.csv --output ..\eval_results.csv
+```
+
+3. Track these metrics:
+   - `Precision`
+   - `Recall`
+   - `Avg latency (s/image)`
+
 ## Phone Testing (Easy Local Demo)
 
 1. Ensure laptop and phone are on the same Wi-Fi.
@@ -61,4 +78,3 @@ pytest
 - In that state, record is **not** auto-saved.
 - User must either retake image or submit manual fields.
 If PowerShell execution policy blocks `npm`, use `npm.cmd` (as above).
-
