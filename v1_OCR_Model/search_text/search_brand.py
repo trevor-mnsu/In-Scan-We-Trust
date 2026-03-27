@@ -69,7 +69,7 @@ def _match_symbol_adjacent_brand(text):
     Match token directly before trademark-like symbol.
     Includes apostrophe as OCR fallback for missed ®.
     """
-    pattern = r"\b([A-Za-z][A-Za-z0-9&\-]{2,})\s*[©®™'’]"
+    pattern = r"\b([A-Za-z][A-Za-z0-9&\-]{2,})\s*[©®™]"
     for match in re.finditer(pattern, text):
         candidate = _clean_token(match.group(1))
         if _is_plausible_brand(candidate):
