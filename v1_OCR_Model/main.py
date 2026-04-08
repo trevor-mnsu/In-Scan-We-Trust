@@ -12,12 +12,12 @@ base_dir = Path(__file__).resolve().parent
 images_dir = base_dir / "images"
 
 image_paths = [
-    str(images_dir / "pillblisterwhite.png"),
+    #str(images_dir / "pillblisterwhite.png"),
     #str(images_dir / "pillblistertin.png"),
     #str(images_dir / "ParcetamolTin.png"),
     #str(images_dir / "IbuprofenTin.png"),
     #str(images_dir / "ErythromycinTin.png"),
-    #str(images_dir / "Atorvastatin.png"),
+    str(images_dir / "Atorvastatin.png"),
     #str(images_dir / "atorvastatin2.png"),
     #str(images_dir / "amoxycillin2.png"),
     #str(images_dir / "amoxycillin2.png"),
@@ -30,7 +30,8 @@ for path in image_paths:
         print(f"\n--- {path} --- SKIPPED (file not found)")
         continue
     print(f"\n--- {path} ---")
-    print(search_text(apply_all_preprocesses(img)[-1]))
+    _, _, _, best_text, _ = apply_all_preprocesses(img)
+    print(search_text(best_text))
 
 
 

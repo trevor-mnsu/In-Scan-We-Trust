@@ -1,0 +1,299 @@
+category,generic_name_or_common_combination
+Pain / Fever / Inflammation,Paracetamol (Acetaminophen)
+Pain / Fever / Inflammation,Ibuprofen
+Pain / Fever / Inflammation,Diclofenac
+Pain / Fever / Inflammation,Aceclofenac
+Pain / Fever / Inflammation,Naproxen
+Pain / Fever / Inflammation,Mefenamic acid
+Pain / Fever / Inflammation,Etoricoxib
+Pain / Fever / Inflammation,Indomethacin
+Pain / Fever / Inflammation,Ketorolac
+Pain / Fever / Inflammation,Tramadol
+Pain / Fever / Inflammation,Tapentadol
+Pain / Fever / Inflammation,Aspirin
+Pain / Fever / Inflammation,Serratiopeptidase
+Pain / Fever / Inflammation,Thiocolchicoside
+Antibiotics / Antibacterials,Amoxicillin
+Antibiotics / Antibacterials,Amoxicillin + Clavulanic acid
+Antibiotics / Antibacterials,Azithromycin
+Antibiotics / Antibacterials,Cefixime
+Antibiotics / Antibacterials,Cefuroxime
+Antibiotics / Antibacterials,Cefpodoxime
+Antibiotics / Antibacterials,Ceftriaxone
+Antibiotics / Antibacterials,Cefalexin (Cephalexin)
+Antibiotics / Antibacterials,Doxycycline
+Antibiotics / Antibacterials,Ofloxacin
+Antibiotics / Antibacterials,Ciprofloxacin
+Antibiotics / Antibacterials,Levofloxacin
+Antibiotics / Antibacterials,Metronidazole
+Antibiotics / Antibacterials,Tinidazole
+Antibiotics / Antibacterials,Linezolid
+Antibiotics / Antibacterials,Clindamycin
+Antibiotics / Antibacterials,Co-trimoxazole (Trimethoprim + Sulfamethoxazole)
+Antibiotics / Antibacterials,Nitrofurantoin
+Antibiotics / Antibacterials,Fosfomycin
+Antibiotics / Antibacterials,Rifaximin
+Antibiotics / Antibacterials,Faropenem
+Antibiotics / Antibacterials,Meropenem
+Antibiotics / Antibacterials,Piperacillin + Tazobactam
+Antibiotics / Antibacterials,Moxifloxacin
+Antifungal / Antiviral / Antiparasitic,Fluconazole
+Antifungal / Antiviral / Antiparasitic,Itraconazole
+Antifungal / Antiviral / Antiparasitic,Terbinafine
+Antifungal / Antiviral / Antiparasitic,Clotrimazole
+Antifungal / Antiviral / Antiparasitic,Ketoconazole
+Antifungal / Antiviral / Antiparasitic,Acyclovir
+Antifungal / Antiviral / Antiparasitic,Valacyclovir
+Antifungal / Antiviral / Antiparasitic,Albendazole
+Antifungal / Antiviral / Antiparasitic,Mebendazole
+Antifungal / Antiviral / Antiparasitic,Ivermectin
+Antifungal / Antiviral / Antiparasitic,Permethrin
+Antifungal / Antiviral / Antiparasitic,Praziquantel
+Antifungal / Antiviral / Antiparasitic,Diethylcarbamazine
+Antifungal / Antiviral / Antiparasitic,Hydroxychloroquine
+Antifungal / Antiviral / Antiparasitic,Chloroquine
+Antifungal / Antiviral / Antiparasitic,Artemether + Lumefantrine
+Cold / Allergy / Cough / Respiratory,Cetirizine
+Cold / Allergy / Cough / Respiratory,Levocetirizine
+Cold / Allergy / Cough / Respiratory,Fexofenadine
+Cold / Allergy / Cough / Respiratory,Loratadine
+Cold / Allergy / Cough / Respiratory,Montelukast
+Cold / Allergy / Cough / Respiratory,Montelukast + Levocetirizine
+Cold / Allergy / Cough / Respiratory,Chlorpheniramine
+Cold / Allergy / Cough / Respiratory,Diphenhydramine
+Cold / Allergy / Cough / Respiratory,Phenylephrine
+Cold / Allergy / Cough / Respiratory,Pseudoephedrine
+Cold / Allergy / Cough / Respiratory,Dextromethorphan
+Cold / Allergy / Cough / Respiratory,Ambroxol
+Cold / Allergy / Cough / Respiratory,Bromhexine
+Cold / Allergy / Cough / Respiratory,Acetylcysteine
+Cold / Allergy / Cough / Respiratory,Salbutamol (Albuterol)
+Cold / Allergy / Cough / Respiratory,Levosalbutamol
+Cold / Allergy / Cough / Respiratory,Theophylline
+Cold / Allergy / Cough / Respiratory,Doxofylline
+Cold / Allergy / Cough / Respiratory,Budesonide
+Cold / Allergy / Cough / Respiratory,Beclometasone
+Cold / Allergy / Cough / Respiratory,Fluticasone
+Cold / Allergy / Cough / Respiratory,Formoterol
+Cold / Allergy / Cough / Respiratory,Salmeterol
+Cold / Allergy / Cough / Respiratory,Tiotropium
+Cold / Allergy / Cough / Respiratory,Ipratropium
+Cold / Allergy / Cough / Respiratory,Xylometazoline
+Gastrointestinal,Pantoprazole
+Gastrointestinal,Rabeprazole
+Gastrointestinal,Omeprazole
+Gastrointestinal,Esomeprazole
+Gastrointestinal,Lansoprazole
+Gastrointestinal,Famotidine
+Gastrointestinal,Domperidone
+Gastrointestinal,Ondansetron
+Gastrointestinal,Metoclopramide
+Gastrointestinal,Itopride
+Gastrointestinal,Sucralfate
+Gastrointestinal,Antacid (Aluminium hydroxide + Magnesium hydroxide)
+Gastrointestinal,Sodium bicarbonate
+Gastrointestinal,Simethicone
+Gastrointestinal,Lactulose
+Gastrointestinal,Polyethylene glycol (PEG)
+Gastrointestinal,Bisacodyl
+Gastrointestinal,Senna
+Gastrointestinal,Dicyclomine
+Gastrointestinal,Hyoscine butylbromide
+Gastrointestinal,Mesalamine (Mesalazine)
+Gastrointestinal,Ursodeoxycholic acid
+Gastrointestinal,Oral Rehydration Salts (ORS)
+Gastrointestinal,Zinc sulfate
+Gastrointestinal,Probiotics (Lactic acid bacillus / Bacillus clausii)
+Diabetes,Metformin
+Diabetes,Glimepiride
+Diabetes,Gliclazide
+Diabetes,Glipizide
+Diabetes,Pioglitazone
+Diabetes,Voglibose
+Diabetes,Acarbose
+Diabetes,Teneligliptin
+Diabetes,Sitagliptin
+Diabetes,Vildagliptin
+Diabetes,Linagliptin
+Diabetes,Empagliflozin
+Diabetes,Dapagliflozin
+Diabetes,Insulin regular
+Diabetes,Insulin NPH
+Diabetes,Insulin glargine
+Diabetes,Insulin premix (30/70)
+Diabetes,Metformin + Glimepiride
+Diabetes,Metformin + Voglibose
+Diabetes,Metformin + Teneligliptin
+Diabetes,Metformin + Sitagliptin
+Blood Pressure / Heart / Vascular,Amlodipine
+Blood Pressure / Heart / Vascular,Telmisartan
+Blood Pressure / Heart / Vascular,Losartan
+Blood Pressure / Heart / Vascular,Olmesartan
+Blood Pressure / Heart / Vascular,Valsartan
+Blood Pressure / Heart / Vascular,Candesartan
+Blood Pressure / Heart / Vascular,Ramipril
+Blood Pressure / Heart / Vascular,Enalapril
+Blood Pressure / Heart / Vascular,Perindopril
+Blood Pressure / Heart / Vascular,Lisinopril
+Blood Pressure / Heart / Vascular,Hydrochlorothiazide
+Blood Pressure / Heart / Vascular,Chlorthalidone
+Blood Pressure / Heart / Vascular,Indapamide
+Blood Pressure / Heart / Vascular,Torsemide
+Blood Pressure / Heart / Vascular,Furosemide
+Blood Pressure / Heart / Vascular,Spironolactone
+Blood Pressure / Heart / Vascular,Metoprolol
+Blood Pressure / Heart / Vascular,Bisoprolol
+Blood Pressure / Heart / Vascular,Nebivolol
+Blood Pressure / Heart / Vascular,Atenolol
+Blood Pressure / Heart / Vascular,Carvedilol
+Blood Pressure / Heart / Vascular,Diltiazem
+Blood Pressure / Heart / Vascular,Verapamil
+Blood Pressure / Heart / Vascular,Cilnidipine
+Blood Pressure / Heart / Vascular,Nifedipine
+Blood Pressure / Heart / Vascular,Clonidine
+Blood Pressure / Heart / Vascular,Prazosin
+Blood Pressure / Heart / Vascular,Isosorbide mononitrate
+Blood Pressure / Heart / Vascular,Nitroglycerin
+Blood Pressure / Heart / Vascular,Digoxin
+Cholesterol / Antiplatelet / Anticoagulant,Atorvastatin
+Cholesterol / Antiplatelet / Anticoagulant,Rosuvastatin
+Cholesterol / Antiplatelet / Anticoagulant,Fenofibrate
+Cholesterol / Antiplatelet / Anticoagulant,Ezetimibe
+Cholesterol / Antiplatelet / Anticoagulant,Aspirin (low dose)
+Cholesterol / Antiplatelet / Anticoagulant,Clopidogrel
+Cholesterol / Antiplatelet / Anticoagulant,Aspirin + Clopidogrel
+Cholesterol / Antiplatelet / Anticoagulant,Ticagrelor
+Cholesterol / Antiplatelet / Anticoagulant,Prasugrel
+Cholesterol / Antiplatelet / Anticoagulant,Apixaban
+Cholesterol / Antiplatelet / Anticoagulant,Rivaroxaban
+Cholesterol / Antiplatelet / Anticoagulant,Dabigatran
+Cholesterol / Antiplatelet / Anticoagulant,Warfarin
+Cholesterol / Antiplatelet / Anticoagulant,Heparin
+Cholesterol / Antiplatelet / Anticoagulant,Enoxaparin
+Neurology / Psychiatry,Gabapentin
+Neurology / Psychiatry,Pregabalin
+Neurology / Psychiatry,Amitriptyline
+Neurology / Psychiatry,Nortriptyline
+Neurology / Psychiatry,Duloxetine
+Neurology / Psychiatry,Venlafaxine
+Neurology / Psychiatry,Sertraline
+Neurology / Psychiatry,Escitalopram
+Neurology / Psychiatry,Fluoxetine
+Neurology / Psychiatry,Paroxetine
+Neurology / Psychiatry,Mirtazapine
+Neurology / Psychiatry,Clonazepam
+Neurology / Psychiatry,Alprazolam
+Neurology / Psychiatry,Lorazepam
+Neurology / Psychiatry,Diazepam
+Neurology / Psychiatry,Olanzapine
+Neurology / Psychiatry,Risperidone
+Neurology / Psychiatry,Quetiapine
+Neurology / Psychiatry,Haloperidol
+Neurology / Psychiatry,Aripiprazole
+Neurology / Psychiatry,Sodium valproate
+Neurology / Psychiatry,Valproic acid
+Neurology / Psychiatry,Levetiracetam
+Neurology / Psychiatry,Carbamazepine
+Neurology / Psychiatry,Oxcarbazepine
+Neurology / Psychiatry,Phenytoin
+Neurology / Psychiatry,Topiramate
+Neurology / Psychiatry,Lamotrigine
+Muscle / Rheumatology / Bone,Allopurinol
+Muscle / Rheumatology / Bone,Colchicine
+Muscle / Rheumatology / Bone,Methotrexate
+Muscle / Rheumatology / Bone,Hydroxychloroquine
+Muscle / Rheumatology / Bone,Sulfasalazine
+Muscle / Rheumatology / Bone,Leflunomide
+Muscle / Rheumatology / Bone,Calcium carbonate
+Muscle / Rheumatology / Bone,Calcium citrate
+Muscle / Rheumatology / Bone,Vitamin D3 (Cholecalciferol)
+Muscle / Rheumatology / Bone,Calcitriol
+Muscle / Rheumatology / Bone,Alendronate
+Muscle / Rheumatology / Bone,Risedronate
+Endocrine / Steroids,Prednisolone
+Endocrine / Steroids,Methylprednisolone
+Endocrine / Steroids,Dexamethasone
+Endocrine / Steroids,Hydrocortisone
+Endocrine / Steroids,Deflazacort
+Endocrine / Steroids,Levothyroxine
+Endocrine / Steroids,Carbimazole
+Endocrine / Steroids,Methimazole
+Endocrine / Steroids,Propylthiouracil
+Women's Health / Obstetrics / Gynecology,Progesterone
+Women's Health / Obstetrics / Gynecology,Dydrogesterone
+Women's Health / Obstetrics / Gynecology,Norethisterone
+Women's Health / Obstetrics / Gynecology,Combined oral contraceptive (Ethinyl estradiol + Levonorgestrel)
+Women's Health / Obstetrics / Gynecology,Emergency contraceptive (Levonorgestrel)
+Women's Health / Obstetrics / Gynecology,Tranexamic acid
+Women's Health / Obstetrics / Gynecology,Tranexamic acid + Mefenamic acid
+Women's Health / Obstetrics / Gynecology,Clotrimazole vaginal
+Women's Health / Obstetrics / Gynecology,Metronidazole vaginal
+Women's Health / Obstetrics / Gynecology,Ferrous ascorbate + Folic acid
+Urology / Renal,Tamsulosin
+Urology / Renal,Tamsulosin + Dutasteride
+Urology / Renal,Finasteride
+Urology / Renal,Potassium citrate
+Urology / Renal,Sodium bicarbonate + Potassium citrate
+Urology / Renal,Solifenacin
+Urology / Renal,Oxybutynin
+Dermatology / Topicals,Mupirocin
+Dermatology / Topicals,Fusidic acid
+Dermatology / Topicals,Permethrin topical
+Dermatology / Topicals,Clobetasol
+Dermatology / Topicals,Betamethasone
+Dermatology / Topicals,Hydrocortisone cream
+Dermatology / Topicals,Tacrolimus ointment
+Dermatology / Topicals,Adapalene
+Dermatology / Topicals,Benzoyl peroxide
+Dermatology / Topicals,Ketoconazole shampoo
+Dermatology / Topicals,Calamine
+Dermatology / Topicals,Luliconazole
+Ophthalmic / ENT,Moxifloxacin eye drops
+Ophthalmic / ENT,Tobramycin eye drops
+Ophthalmic / ENT,Carboxymethylcellulose eye drops
+Ophthalmic / ENT,Olopatadine eye drops
+Ophthalmic / ENT,Timolol eye drops
+Ophthalmic / ENT,Brimonidine eye drops
+Ophthalmic / ENT,Latanoprost eye drops
+Ophthalmic / ENT,Ofloxacin ear drops
+Vitamins / Minerals / Nutrition,Iron + Folic acid
+Vitamins / Minerals / Nutrition,Ferrous sulfate
+Vitamins / Minerals / Nutrition,Ferrous ascorbate
+Vitamins / Minerals / Nutrition,Folic acid
+Vitamins / Minerals / Nutrition,Vitamin B-complex
+Vitamins / Minerals / Nutrition,Methylcobalamin
+Vitamins / Minerals / Nutrition,Methylcobalamin + Pregabalin
+Vitamins / Minerals / Nutrition,Vitamin C
+Vitamins / Minerals / Nutrition,Zinc
+Vitamins / Minerals / Nutrition,Multivitamin
+Vitamins / Minerals / Nutrition,Protein supplements / oral nutrition powder
+Common Fixed-Dose Combinations Seen in India,Paracetamol + Caffeine
+Common Fixed-Dose Combinations Seen in India,Ibuprofen + Paracetamol
+Common Fixed-Dose Combinations Seen in India,Aceclofenac + Paracetamol
+Common Fixed-Dose Combinations Seen in India,Aceclofenac + Paracetamol + Serratiopeptidase
+Common Fixed-Dose Combinations Seen in India,Diclofenac + Paracetamol
+Common Fixed-Dose Combinations Seen in India,Dicyclomine + Paracetamol
+Common Fixed-Dose Combinations Seen in India,Pantoprazole + Domperidone
+Common Fixed-Dose Combinations Seen in India,Rabeprazole + Domperidone
+Common Fixed-Dose Combinations Seen in India,Esomeprazole + Domperidone
+Common Fixed-Dose Combinations Seen in India,Trypsin + Bromelain + Rutoside
+Common Fixed-Dose Combinations Seen in India,Cefixime + Ofloxacin
+Common Fixed-Dose Combinations Seen in India,Ofloxacin + Ornidazole
+Common Fixed-Dose Combinations Seen in India,Norfloxacin + Tinidazole
+Common Fixed-Dose Combinations Seen in India,Amoxicillin + Dicloxacillin
+Common Fixed-Dose Combinations Seen in India,Salbutamol + Bromhexine + Guaifenesin
+Common Fixed-Dose Combinations Seen in India,Ambroxol + Levosalbutamol + Guaifenesin
+Common Fixed-Dose Combinations Seen in India,Cetirizine + Paracetamol + Phenylephrine
+Common Fixed-Dose Combinations Seen in India,Levocetirizine + Montelukast
+Common Fixed-Dose Combinations Seen in India,Glimepiride + Metformin
+Common Fixed-Dose Combinations Seen in India,Gliclazide + Metformin
+Common Fixed-Dose Combinations Seen in India,Telmisartan + Amlodipine
+Common Fixed-Dose Combinations Seen in India,Telmisartan + Hydrochlorothiazide
+Common Fixed-Dose Combinations Seen in India,Losartan + Hydrochlorothiazide
+Common Fixed-Dose Combinations Seen in India,Rosuvastatin + Aspirin + Clopidogrel
+Common Fixed-Dose Combinations Seen in India,Atorvastatin + Clopidogrel
+Common Fixed-Dose Combinations Seen in India,Aspirin + Atorvastatin
+Common Fixed-Dose Combinations Seen in India,Calcium + Vitamin D3
+Common Fixed-Dose Combinations Seen in India,Methylcobalamin + Alpha lipoic acid
+Common Fixed-Dose Combinations Seen in India,Trypsin + Chymotrypsin
+Common Fixed-Dose Combinations Seen in India,Amoxicillin + Lactobacillus

@@ -22,7 +22,7 @@ img1 = load_image(IMAGES_DIR / "pillblisterwhite.png")
 img2 = load_image(IMAGES_DIR / "pillblistertin.png")
 
 # Finding the best preprocessing techniques
-best_img, best_method, best_score, best_text = apply_all_preprocesses(img1)
+best_img, best_method, best_score, best_text, _ = apply_all_preprocesses(img1)
 
 # Extract structured fields from the best OCR output and print to terminal.
 parsed = search_text(best_text)
