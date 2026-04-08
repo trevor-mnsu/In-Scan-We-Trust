@@ -8,3 +8,14 @@ __pycache__/
 
 # IDE/editor folders
 .vscode/
+
+# Test/build artifacts
+.pytest_cache/
+
+# Backend data and local envs
+backend/data/
+venv/
+
+# Frontend artifacts
+frontend/node_modules/
+frontend/dist/

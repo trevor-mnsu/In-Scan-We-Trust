@@ -1,123 +1,111 @@
 import re
+#Note a lot of them have IP indian pharma... look for this?
+# Common pharmaceutical prefixes and suffixes used in generic drug naming
+# Prefixes often indicate drug class or mechanism of action
+MED_PREFIXES = [
+    "ace", "acet", "amox", "ampi", "ator", "azi", "benzo", "bupro",
+    "carba", "cepha", "chlor", "cip", "clari", "clinda", "clopi",
+    "cyclo", "dexa", "diaz", "diclo", "digox", "dilt", "doxy",
+    "enala", "erythro", "esomep", "estradi", "fluox", "fluco",
+    "furo", "gabap", "glip", "gluco", "hydro", "ibup", "insulin",
+    "irbesar", "isosorbide", "keto", "levo", "lisi", "lora",
+    "losart", "meto", "metroni", "mido", "mino", "morph",
+    "napro", "nifed", "nitro", "omep", "oxyco", "para",
+    "panto", "pred", "propr", "quetiap", "rami", "rifamp",
+    "risper", "rosuvast", "sertra", "simvast", "sumat",
+    "tamox", "temazep", "tramad", "valsar", "vancom",
+    "venlafax", "warfar", "zolp",
+]
+
+# Suffixes often indicate drug class
+MED_SUFFIXES = [
+    "afil", "alol", "amine", "amol", "anol", "anserin", "artan",
+    "ase", "asin", "asone", "astine", "azosin", "barb", "bital",
+    "caine", "cillin", "clasone", "corti", "cycline", "dipine",
+    "done", "dronate", "fenac", "floxacin", "gliptin", "ide",
+    "ifene", "illin", "imab", "ine", "ipine", "irine", "irox",
+    "isone", "itib", "ium", "izine", "lamide", "lam", "lapril",
+    "limus", "lone", "lopram", "losin", "lukast", "mab", "mycin",
+    "nacin", "napril", "nib", "nicol", "nitrate", "nolol", "olol",
+    "omide", "omycin", "opril", "osartan", "oxacin", "oxetine",
+    "oxin", "pam", "parin", "prazole", "pril", "profen",
+    "razine", "restat", "ridol", "rine", "sartan", "semide",
+    "setron", "statin", "sulide", "tadine", "tazole", "thrin",
+    "tidine", "tilidine", "tinib", "triptan", "tyline", "uride",
+    "vastatin", "vir", "vudine", "xaban", "xine", "xole", "zide",
+    "zine", "zosin", "zumab",
+]
+
+# Minimum word length to avoid false positives on short tokens
+MIN_WORD_LEN = 4
 
 
-METADATA_PATTERN = re.compile(
-    r"(?i)\b(lot|batch|exp|expiry|mfg|manufact|date|use by|mrp|price|lic|license)\b"
-)
-COMPOSITION_PATTERN = re.compile(
-    r"(?i)\b(each\s+tablet\s+contains|composition|contains|ingredients?)\b"
-)
-DOSAGE_ONLY_PATTERN = re.compile(
-    r"(?i)^\d+(?:\.\d+)?\s*(mg|g|mcg|kg|ml|mL|IU)$"
-)
+def _has_med_affix(word):
+    """Return True if word starts or ends with a known pharmaceutical affix."""
+    w = word.lower()
+    for prefix in MED_PREFIXES:
+        if w.startswith(prefix):
+            return True
+    for suffix in MED_SUFFIXES:
+        if w.endswith(suffix):
+            return True
+    return False
 
 
-def _tokenize_alpha_num(line):
-    return re.findall(r"[A-Za-z0-9\-]+", line)
-
-
-def _is_probable_code(line):
-    compact = re.sub(r"[^A-Za-z0-9]", "", line)
-    return bool(re.fullmatch(r"[A-Z0-9]{1,4}", compact))
-
-
-def _score_candidate(line):
-    if DOSAGE_ONLY_PATTERN.match(line):
-        return None
-    if METADATA_PATTERN.search(line):
-        return None
-    if COMPOSITION_PATTERN.search(line):
-        return None
-    if _is_probable_code(line):
-        return None
-    if not re.search(r"[A-Z]", line):
-        return None
-
-    tokens = _tokenize_alpha_num(line)
-    if not tokens:
-        return None
-
-    alpha_count = sum(char.isalpha() for char in line)
-    char_count = max(1, len(line))
-    alpha_ratio = alpha_count / char_count
-    digit_count = sum(char.isdigit() for char in line)
-    digit_ratio = digit_count / char_count
-
-    score = 0.0
-
-    token_count = len(tokens)
-    if 1 <= token_count <= 5:
-        score += 3
-    elif token_count <= 8:
-        score += 1
-    else:
-        score -= 2
-
-    if alpha_ratio >= 0.6:
-        score += 2
-    elif alpha_ratio >= 0.4:
-        score += 1
-    else:
-        score -= 2
-
-    if digit_ratio > 0.35:
-        score -= 2
-
-    if any(re.search(r"[A-Za-z]", token) for token in tokens):
-        score += 1
-    else:
-        score -= 2
-
-    if any(token and token[0].isupper() for token in tokens):
-        score += 1
-    else:
-        score -= 2
-
-    if re.search(r"[^\w\s\-\(\)]", line):
-        score -= 1
-
-    if len(line) < 4:
-        score -= 2
-
-    if re.search(r"(?i)\b(tablet|capsule|film|coated)\b", line):
-        score += 1
-
-    return score
-
-
-def search_medicine_name(text, normalized_lines=None):
+def search_medicine_name_by_affix(text):
     """
-    Picks the best medication-name candidate from top OCR lines.
-    Returns None when confidence is low.
+    Scans all words in the text for known pharmaceutical prefixes/suffixes
+    and returns the first matching candidate.
+
+    Returns the matched word (preserving original casing) or None.
     """
-    if not text:
-        return None
+    # Tokenise: keep only alphabetic tokens long enough to be a drug name
+    tokens = re.findall(r"[A-Za-z]{" + str(MIN_WORD_LEN) + r",}", text)
 
-    lines = normalized_lines if normalized_lines is not None else text.splitlines()
-    lines = [line.strip() for line in lines if line and line.strip()]
-    if not lines:
-        return None
+    for token in tokens:
+        if _has_med_affix(token):
+            return token
 
-    best_line = None
-    best_score = -999.0
-
-    for idx, line in enumerate(lines[:8]):
-        score = _score_candidate(line)
-        if score is None:
-            continue
-
-        score -= idx * 0.05
-
-        if score > best_score:
-            best_score = score
-            best_line = line
-
-    if best_line is None or best_score < 3.5:
-        return None
-
-    return re.sub(r"\s+", " ", best_line).strip()
+    return None
 
 
-def search_medicine_name_first_line(text, normalized_lines=None):
-    # Backward-compatible wrapper.
-    return search_medicine_name(text, normalized_lines=normalized_lines)
+def search_medicine_name_by_ip(text):
+    """
+    Looks for 'IP' (Indian Pharmacopoeia) marker and returns the word(s)
+    immediately before it, which is typically the generic drug name.
+
+    e.g. "Paracetamol Tablets IP 500 mg" -> "Paracetamol Tablets"
+    """
+    match = re.search(r"([A-Za-z]+(?:\s+[A-Za-z]+)?)\s+IP\b", text)
+    if match:
+        return match.group(1).strip()
+    return None
+
+
+def search_medicine_name_first_line(text):
+    """
+    Tries to find the medicine name using three strategies in order:
+      1. IP marker backtrack (Indian Pharmacopoeia).
+      2. Affix-based scan across the full text.
+      3. Falls back to the first non-empty line.
+
+    Returns a string or None.
+    """
+    # Strategy 1: IP marker
+    ip_result = search_medicine_name_by_ip(text)
+    if ip_result:
+        return ip_result
+
+    # Strategy 2: prefix/suffix heuristic
+    affix_result = search_medicine_name_by_affix(text)
+    if affix_result:
+        return affix_result
+
+    # Strategy 3: first non-empty line fallback
+    lines = text.strip().splitlines()
+    for line in lines:
+        stripped = line.strip()
+        if stripped:
+            return stripped
+
+    return None
