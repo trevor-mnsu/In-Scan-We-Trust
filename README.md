@@ -12,7 +12,7 @@ This project now includes:
 2. Frontend calls `POST /scan`.
 3. Backend runs OCR pipeline and extraction:
    - preprocessing + OCR model selection
-   - field extraction (`search_name`, `brand_name`, `dose_strength`)
+   - field extraction (`medication_name`, `brand_name`, `dose_strength`)
 4. Quality gate checks confidence and required fields:
    - If pass: save OCR record to SQLite.
    - If fail: block auto-save and require retake or manual entry.

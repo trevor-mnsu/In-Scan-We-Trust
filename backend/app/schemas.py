@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field
 
 
 class ExtractedFields(BaseModel):
-    search_name: str
+    medication_name: str
     brand_name: str
     dose_strength: str
 

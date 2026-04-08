@@ -28,7 +28,7 @@ best_img, best_method, best_score, best_text = apply_all_preprocesses(img1)
 parsed = search_text(best_text)
 
 print("\nExtracted Fields:")
-print(f"Drug Name: {parsed['search_name']}")
+print(f"Drug Name: {parsed['medication_name']}")
 print(f"Brand Name: {parsed['brand_name']}")
 print(f"Dose Strength: {parsed['dose_strength']}")
 

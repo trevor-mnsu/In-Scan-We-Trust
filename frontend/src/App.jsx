@@ -98,8 +98,8 @@ export default function App() {
         setManualForm((prev) => ({
           ...prev,
           medicine_name:
-            result.extracted_fields?.search_name !== "Not Found"
-              ? result.extracted_fields.search_name
+            result.extracted_fields?.medication_name !== "Not Found"
+              ? result.extracted_fields.medication_name
               : "",
           brand_name:
             result.extracted_fields?.brand_name !== "Not Found"
@@ -237,7 +237,7 @@ export default function App() {
             <div className="fields-grid">
               <div className="field-card">
                 <label>Medicine Name</label>
-                <p>{scanResult.extracted_fields.search_name}</p>
+                <p>{scanResult.extracted_fields.medication_name}</p>
               </div>
               <div className="field-card">
                 <label>Brand Name</label>

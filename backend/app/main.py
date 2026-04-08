@@ -60,7 +60,7 @@ async def scan_image(file: UploadFile = File(...), db: Session = Depends(get_db)
     quality = evaluate_scan_quality(ocr_result.extracted_fields, ocr_result.overall_confidence)
 
     extracted = ExtractedFields(
-        search_name=ocr_result.extracted_fields.get("search_name", "Not Found"),
+        medication_name=ocr_result.extracted_fields.get("medication_name", "Not Found"),
         brand_name=ocr_result.extracted_fields.get("brand_name", "Not Found"),
         dose_strength=ocr_result.extracted_fields.get("dose_strength", "Not Found"),
     )
@@ -80,7 +80,7 @@ async def scan_image(file: UploadFile = File(...), db: Session = Depends(get_db)
     record = MedicationRecord(
         source="ocr",
         status="accepted",
-        medicine_name=extracted.search_name,
+        medicine_name=extracted.medication_name,
         brand_name=extracted.brand_name,
         dose_strength=extracted.dose_strength,
         ocr_method=ocr_result.best_method,
