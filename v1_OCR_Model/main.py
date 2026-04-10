@@ -12,12 +12,12 @@ base_dir = Path(__file__).resolve().parent
 images_dir = base_dir / "images"
 
 image_paths = [
-    #str(images_dir / "pillblisterwhite.png"),
+    str(images_dir / "pillblisterwhite.png"),
     #str(images_dir / "pillblistertin.png"),
     #str(images_dir / "ParcetamolTin.png"),
     #str(images_dir / "IbuprofenTin.png"),
     #str(images_dir / "ErythromycinTin.png"),
-    str(images_dir / "Atorvastatin.png"),
+    #str(images_dir / "Atorvastatin.png"),
     #str(images_dir / "atorvastatin2.png"),
     #str(images_dir / "amoxycillin2.png"),
     #str(images_dir / "amoxycillin2.png"),
