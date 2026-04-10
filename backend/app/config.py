@@ -8,7 +8,7 @@ DB_PATH = DATA_DIR / "medscan.db"
 
 # OCR safety thresholds
 MIN_OCR_CONFIDENCE = 0.60
-REQUIRED_FIELDS = ("search_name", "brand_name", "dose_strength")
+REQUIRED_FIELDS = ("medication_name", "brand_name", "dose_strength")
 
 # Frontend dev server and common LAN-style testing origins
 ALLOWED_ORIGINS = [

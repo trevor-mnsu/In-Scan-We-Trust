@@ -30,7 +30,8 @@ for path in image_paths:
         print(f"\n--- {path} --- SKIPPED (file not found)")
         continue
     print(f"\n--- {path} ---")
-    print(search_text(apply_all_preprocesses(img)[-1]))
+    _, _, _, best_text, _ = apply_all_preprocesses(img)
+    print(search_text(best_text))
 
 
 
