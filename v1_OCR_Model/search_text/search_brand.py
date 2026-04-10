@@ -4,31 +4,11 @@ from difflib import get_close_matches
 from search_text.indian_brand_lexicon import INDIAN_BRAND_LEXICON
 
 
-BRAND_STOPWORDS = {
-    "tablet",
-    "tablets",
-    "capsule",
-    "capsules",
-    "dosage",
-    "warning",
-    "children",
-    "contains",
-    "regd",
-    "trade",
-    "mark",
-    "physician",
-    "store",
-    "moisture",
-    "india",
-    "made",
-    "reach",
-    "keep",
-    "each",
-    "directed",
-}
+# -------------------------------
+# Helpers
+# -------------------------------
 
-
-def _normalize_ocr_text(text):
+def _normalize_text(text):
     replacements = {
         "Â©": "©",
         "Â®": "®",
@@ -38,115 +18,120 @@ def _normalize_ocr_text(text):
         "‘": "'",
         "`": "'",
     }
-    normalized = text
     for old, new in replacements.items():
-        normalized = normalized.replace(old, new)
-    normalized = re.sub(r"\s+", " ", normalized)
-    return normalized.strip()
+        text = text.replace(old, new)
+
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
 
 
 def _clean_token(token):
-    cleaned = re.sub(r"[^A-Za-z0-9&\-]", "", token or "")
-    return cleaned
+    return re.sub(r"[^A-Za-z0-9\-]", "", token or "")
 
 
-def _is_plausible_brand(token):
+def _is_valid_token(token):
     if not token:
         return False
     if len(token) < 4:
         return False
-    lowered = token.lower()
-    if lowered in BRAND_STOPWORDS:
+    if token.isdigit():
         return False
-    if lowered.isdigit():
+
+    # Reject codes like N757
+    if re.match(r"^[A-Za-z]\d+$", token):
         return False
+
     return True
 
 
-def _match_symbol_adjacent_brand(text):
-    """
-    Strategy A:
-    Match token directly before trademark-like symbol.
-    Includes apostrophe as OCR fallback for missed ®.
-    """
-    pattern = r"\b([A-Za-z][A-Za-z0-9&\-]{2,})\s*[©®™]"
-    for match in re.finditer(pattern, text):
-        candidate = _clean_token(match.group(1))
-        if _is_plausible_brand(candidate):
-            return candidate
-    return None
+# -------------------------------
+# STEP 1: Lexicon Match (Highest Confidence)
+# -------------------------------
 
+def _match_lexicon(text):
+    lexicon_map = {
+        name.lower().replace(" ", ""): name
+        for name in INDIAN_BRAND_LEXICON
+    }
 
-def _match_trademark_context_brand(text):
-    """
-    Strategy B:
-    If OCR turns ® into text context, look for candidate immediately before
-    nearby 'Regd'/'Trade Mark' marker.
-    """
-    pattern = r"\b([A-Za-z][A-Za-z0-9&\-]{2,})\b(?=.{0,24}\b(?:Regd|Trade\s*Mark)\b)"
-    for match in re.finditer(pattern, text, flags=re.IGNORECASE):
-        candidate = _clean_token(match.group(1))
-        if _is_plausible_brand(candidate):
-            return candidate
-    return None
-
-
-def _match_strength_line_brand(text):
-    """
-    Strategy C:
-    Match brand-like token followed by strength number (e.g., 'Pacimol 500').
-    """
-    pattern = r"\b([A-Za-z][A-Za-z0-9&\-]{3,})['’]?\s*[-]?\s*(\d{2,4})\b"
-    for match in re.finditer(pattern, text):
-        candidate = _clean_token(match.group(1))
-        if _is_plausible_brand(candidate):
-            return candidate
-    return None
-
-
-def _match_lexicon_brand(text):
-    """
-    Strategy D:
-    Fallback to Indian pharma brand lexicon with exact/fuzzy matching.
-    """
-    lexicon_map = {name.lower().replace(" ", ""): name for name in INDIAN_BRAND_LEXICON}
-    tokens = re.findall(r"[A-Za-z][A-Za-z0-9'&\-]{2,}", text)
+    tokens = re.findall(r"[A-Za-z][A-Za-z0-9'\-]{2,}", text)
 
     for token in tokens:
-        candidate = _clean_token(token).lower().replace(" ", "")
-        if not _is_plausible_brand(candidate):
-            continue
-        if candidate in lexicon_map:
-            return lexicon_map[candidate]
+        cleaned = _clean_token(token).lower().replace(" ", "")
+        if cleaned in lexicon_map:
+            return lexicon_map[cleaned]
 
-    normalized_keys = list(lexicon_map.keys())
+    # Fuzzy fallback
+    keys = list(lexicon_map.keys())
     for token in tokens:
-        candidate = _clean_token(token).lower().replace(" ", "")
-        if not _is_plausible_brand(candidate):
+        cleaned = _clean_token(token).lower().replace(" ", "")
+        if not _is_valid_token(cleaned):
             continue
-        matches = get_close_matches(candidate, normalized_keys, n=1, cutoff=0.84)
-        if matches:
-            return lexicon_map[matches[0]]
+
+        match = get_close_matches(cleaned, keys, n=1, cutoff=0.85)
+        if match:
+            return lexicon_map[match[0]]
 
     return None
+
+
+# -------------------------------
+# STEP 2: First letter capital + Strength Pattern
+# e.g. "BRUFEN-600", "Pacimol 500"
+# -------------------------------
+
+import re
+
+def _match_strength_pattern(text):
+    # ✅ Only allow realistic medicine strengths
+    VALID_STRENGTHS = {
+        "10", "25", "100", "125", "200", "250", "300",
+        "400", "500", "550", "600", "650",
+        "750", "800", "1000"
+    }
+
+    pattern = r"\b([A-Z][a-z]{2,}|[A-Z]{3,})(?:[\s\-])(\d{2,4})\b"
+
+    for match in re.finditer(pattern, text):
+        brand = _clean_token(match.group(1))
+        strength = match.group(2)
+
+        # ✅ Strict validation
+        if not brand or not brand[0].isupper():
+            continue
+
+        if not _is_valid_token(brand):
+            continue
+
+        if strength not in VALID_STRENGTHS:
+            continue
+
+        return brand  # first valid match only
+
+    return None
+
+# -------------------------------
+# MAIN FUNCTION
+# -------------------------------
 
 def search_brand_name(text):
     """
-    Multi-strategy brand extraction for noisy OCR output.
-
-    Returns the most likely brand name.
-    Returns None if nothing is found.
+    Priority:
+    1. Lexicon match (exact / fuzzy)
+    2. Strength pattern (e.g., Pacimol 500, Brufen-600)
+    3. Capitalized heuristic
     """
-    normalized_text = _normalize_ocr_text(text)
-    strategy_order = (
-        _match_symbol_adjacent_brand,
-        _match_trademark_context_brand,
-        _match_lexicon_brand,
-        _match_strength_line_brand,
-    )
 
-    for strategy in strategy_order:
-        brand_name = strategy(normalized_text)
-        if brand_name:
-            return brand_name
+    text = _normalize_text(text)
+
+    # Step 1: Lexicon
+    brand = _match_lexicon(text)
+    if brand:
+        return brand
+
+    # Step 2: Capital + Strength pattern
+    brand = _match_strength_pattern(text)
+    if brand:
+        return brand
+
     return None
