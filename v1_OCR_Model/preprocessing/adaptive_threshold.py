@@ -10,5 +10,5 @@ def adaptive_threshold(img):
         15,
         4
     )
-
+    print("Adaptive threshold applied to the image.")
     return thresh
