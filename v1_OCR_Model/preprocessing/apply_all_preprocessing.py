@@ -7,6 +7,7 @@ from .resize_image import resize_image
 from evaluate.get_average_confidence import get_average_confidence
 from evaluate.get_easyocr_confidence import get_easyocr_confidence
 from search_text.search_text import search_text
+from .adaptive_threshold import adaptive_threshold
 import pytesseract
 import easyocr
 reader = easyocr.Reader(['en'], gpu=False)
@@ -23,6 +24,7 @@ def apply_all_preprocesses(img):
         "Denoised": mildly_denoised,
         "Illumination Normalized": illumination_normalization,
         "CLAHE": clahe,
+        "Adaptive Threshold": adaptive_threshold,
     }
 
     for name, func in preprocessing_methods.items():
